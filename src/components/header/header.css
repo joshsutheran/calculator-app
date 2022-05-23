@@ -1,0 +1,16 @@
+.header {
+    margin-bottom: 5vh;
+}
+
+.header h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: whitesmoke;
+    font-size: calc(10px + 3vw);
+    text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+}
+
+@media screen and (max-width: 600px) {
+    .header h1 {
+        font-size: calc(10px + 5vw);
+    }
+}

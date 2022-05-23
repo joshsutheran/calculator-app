@@ -3,7 +3,7 @@ import './buttons.css'
 const Buttons = (props) => {
   return (
     <div className="calculator__buttons">
-      <button onClick={props.reset} className="button__reset">C</button>
+      <button onClick={props.reset} className="button__operation-purple">AC</button>
       <button onClick={props.sign} className="button__operation-purple">+-</button>
       <button onClick={props.input} value={'%'} className="button__operation-purple">%</button>
       <button onClick={props.input} value={' / '} className="button__operation">/</button>
