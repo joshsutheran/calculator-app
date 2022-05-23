@@ -1,36 +1,53 @@
 import "./App.css";
 
+import { useState } from "react";
+
+import Display from "./components/display/display";
+import Buttons from "./components/buttons/buttons";
+
 function App() {
+  const [calculation, setCalculation] = useState("")
+  const [answer, setAnswer] = useState(0)
+
+  function input(event) {
+    setAnswer(0)
+    setCalculation(prevCalc => prevCalc.concat(event.target.value))
+  }
+
+  function evaluate() {
+    if (calculation[0] === ' + ' || ' - ' || ' * ' || ' / ' || '%') {
+      setCalculation("")
+      setAnswer(0)
+    } else {
+      const solution = eval(calculation)
+      setAnswer(solution)
+      setCalculation("")
+    }
+  }
+
+  function reset() {
+    setAnswer(0)
+    setCalculation("")
+  }
+
+  function del () {
+    setCalculation(prevCalc => prevCalc.slice(0, -1))
+  }
+
+  function sign () {
+    if (calculation[0] !== '-') {
+      setCalculation(prevCalc => `-${prevCalc}`)
+    } else {
+      setCalculation(prevCalc => prevCalc.substring(1))
+    }
+  }
+
   return (
     <div className="background">
       <div className="calculator">
         <div className="darkMode">Toggle Dark Mode Here!</div>
-        <div className="calculator__display">
-          <h2 className="calculator__display--calc">Calculation will go here!</h2>
-          <h1 className="calculator__display--ans">871</h1>
-        </div>
-        <div className="calculator__buttons">
-          <button className="button__reset">C</button>
-          <button className="button__operation-grey">+-</button>
-          <button className="button__operation-grey">%</button>
-          <button className="button__operation">/</button>
-          <button className="button__number">7</button>
-          <button className="button__number">8</button>
-          <button className="button__number">9</button>
-          <button className="button__operation">*</button>
-          <button className="button__number">4</button>
-          <button className="button__number">5</button>
-          <button className="button__number">6</button>
-          <button className="button__operation">-</button>
-          <button className="button__number">1</button>
-          <button className="button__number">2</button>
-          <button className="button__number">3</button>
-          <button className="button__operation">+</button>
-          <button className="button__number">.</button>
-          <button className="button__number">0</button>
-          <button className="button__number button__delete">Delete</button>
-          <button className="button__operation">=</button>
-        </div>
+        <Display calculation={calculation} answer={answer} />
+        <Buttons sign={sign} del={del} reset={reset} evaluate={evaluate} input={input} />
       </div>
     </div>
   );
