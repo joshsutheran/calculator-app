@@ -1,0 +1,26 @@
+.calculator__buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 230px;
+    row-gap: 0.5rem;
+    column-gap: 0.1rem;
+    padding: 1rem;
+  }
+  
+  .button__operation {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    font-family: "Work Sans", sans-serif;
+    font-size: 1.5vw;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: orange;
+    color: whitesmoke;
+  }
+
+  .button__number {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    font-family: "Work Sans", sans-serif;
+    font-size: 1.5vw;
+    font-weight: 700;
+    cursor: pointer;
+  }
