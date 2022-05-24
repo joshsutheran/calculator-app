@@ -16,9 +16,14 @@ function App() {
   }
 
   function evaluate() {
+    try {
       const solution = (Math.round(eval(calculation) * 100) / 100);
         setAnswer(solution);
         setCalculation("");
+    }
+    catch (err) {
+      setCalculation("Error! Try Again.")
+    }
   }
 
   function reset() {
